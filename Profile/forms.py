@@ -37,8 +37,9 @@ class UserRegistrationForm(UserCreationForm):
     
     def __init__(self,*args,**kwargs):
         super().__init__(*args,**kwargs)
-
+        common_class="'w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         for field in self.fields.values():
+            field.widget.attrs.update({'class':common_class})
             field.help_text=None
 
 class ProfileRegistrationForm(forms.ModelForm):
@@ -53,5 +54,7 @@ class ProfileRegistrationForm(forms.ModelForm):
     def __init__(self,*args,**kwargs):
         super().__init__(*args,**kwargs)
         self.fields['gender'].choices=Profile.gender_choices
+        common_class="'w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         for field in self.fields.values():
+            field.widget.attrs.update({'class':common_class})
             field.help_text=None
