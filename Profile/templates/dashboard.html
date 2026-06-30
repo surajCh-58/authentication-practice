@@ -1,0 +1,9 @@
+<html>
+    <head>
+        <title>Dashboard</title>
+    </head>
+    <body>
+        <p>Welcome Back {{request.user.username}}</p>
+        <a href={% url "Profile:logout" %}>Logout</a>
+    </body>
+    </html>

@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>{% if instance.pk %}Update{%else%}Create{%endif%}</title>
+    </head>
+    <body>
+        <form method="POST">
+    {% csrf_token %}
+
+    <label>{{ u_f.username.label }}</label>
+    {{ u_f.username }}
+
+    <label>{{ u_f.first_name.label }}</label>
+    {{ u_f.first_name }}
+
+    <label>{{ u_f.last_name.label }}</label>
+    {{ u_f.last_name }}
+
+    <label>{{ u_f.email.label }}</label>
+    {{ u_f.email }}
+
+    <label>{{ p_f.phone.label }}</label>
+    {{ p_f.phone }}
+    
+    <label>{{ p_f.gender.label }}</label>
+    {{ p_f.gender }}
+
+    <label>{{ u_f.password1.label }}</label>
+    {{ u_f.password1 }}
+
+    <label>{{ u_f.password2.label }}</label>
+    {{ u_f.password2 }}
+
+    <button type="submit">
+        {% if instance.pk %}Update{% else %}Create{% endif %}
+    </button>
+</form>
+    </body>
+    </html>
